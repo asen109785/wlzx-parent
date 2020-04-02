@@ -1,0 +1,42 @@
+# server
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 31400
+# spring
+spring:
+  # 微服务应用名
+  application:
+    name: wlzx-service-manage-media
+  datasource:
+    url: jdbc:mysql://localhost:3306/wlzx_media?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  rabbitmq:
+    host: 192.168.31.10
+    username: admin
+    password: admin
+    port: 5672
+    virtual-host: my_vhost
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml # 映射xml位置
+  #type-aliases-package: net.wanho.po # 别名
+  configuration: # mybatis的原生配置
+    map-underscore-to-camel-case: true # 开启驼峰命名
+    #cache-enabled: false # 不使用缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: uuid  # 主键生成方案
+      field-strategy: not_empty  # 列的策略
+      db-type: mysql # 数据库类型
+
+wlzx:
+  upload-location: F:/javaAll/wlzxproject/prj/video/
+  ffmpeg-path: F:/javasoft/ffmpeg-20200323-ba698a2-win64-static/bin/ffmpeg.exe
+  mq:
+    routingKey: routingkey_media_video
+    exchange: ex_media_video
+    queue : queue_media_video

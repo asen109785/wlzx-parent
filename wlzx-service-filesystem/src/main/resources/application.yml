@@ -1,0 +1,41 @@
+server:
+  port: 22100
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/wlzx_course?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  application:
+    name: wlzx-service-filesystem
+fdfs:
+  pool:
+    ## 连接池最大数量
+    max-total: 200
+    ## 每个tracker地址的最大连接数
+    max-total-per-key: 50
+    ## 连接耗尽时等待获取连接的最大毫秒数
+    max-wait-millis: 5000
+    testOnBorrow: false
+  soTimeout: 1500 #socket连接超时时长
+  connectTimeout: 600 #连接tracker服务器超时时长
+  resHost: 192.168.31.10
+  storagePort: 5000
+  thumbImage: #缩略图生成参数，可选
+    width: 150
+    height: 150
+  trackerList: #TrackerList参数,支持多个，我这里只有一个，如果有多个在下方加- x.x.x.x:port
+    - 192.168.31.10:22122
+# mybatis plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml # 映射xml位置
+  #type-aliases-package: net.wanho.freemarker.po # 别名
+  configuration: # mybatis的原生配置
+    map-underscore-to-camel-case: true # 开启驼峰命名
+    cache-enabled: false # 不使用缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: uuid  # 主键生成方案
+      field-strategy: not_empty  # 列的策略
+      db-type: mysql # 数据库类型

@@ -1,0 +1,78 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 31001
+
+eureka:
+  client:
+    service-url:
+      #指定注册中心的地址
+      defaultZone: http://localhost:50101/eureka/
+  instance:
+    instance:
+    #    显示ip
+    prefer-ip-address: true
+    # status 的名称 ---当前项目的名称
+    instance-id: wlzx-service-manage-cms
+
+
+spring:
+  # 微服务应用名
+  application:
+    name: wlzx-service-manage-cms
+  #mysql数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/wlzx_cms?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: root
+  freemarker:
+    cache: false  #关闭模板缓存，方便测试
+    settings:
+      template_update_delay: 0
+  rabbitmq:
+    host: 192.168.31.10
+    username: admin
+    password: admin
+    port: 5672
+    virtual-host: my_vhost
+
+# mybatis plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml # 映射xml位置
+  #type-aliases-package: net.wanho.po # 别名
+  configuration: # mybatis的原生配置
+    map-underscore-to-camel-case: true # 开启驼峰命名
+    #cache-enabled: false # 不使用缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: uuid  # 主键生成方案
+      field-strategy: not_empty  # 列的策略
+      db-type: mysql # 数据库类型
+
+fdfs:
+  pool:
+    ## 连接池最大数量
+    max-total: 200
+    ## 每个tracker地址的最大连接数
+    max-total-per-key: 50
+    ## 连接耗尽时等待获取连接的最大毫秒数
+    max-wait-millis: 5000
+    testOnBorrow: false
+  soTimeout: 1500 #socket连接超时时长
+  connectTimeout: 600 #连接tracker服务器超时时长
+  resHost: 192.168.31.10
+  storagePort: 5000
+  thumbImage: #缩略图生成参数，可选
+    width: 150
+    height: 150
+  trackerList: #TrackerList参数,支持多个，我这里只有一个，如果有多个在下方加- x.x.x.x:port
+    - 192.168.31.10:22122
+
+wlzx:
+  mq:
+    queue: queue_wlzx_cms
+    rountKey: 1
+    exchange: exchange_wlzx_cms
+

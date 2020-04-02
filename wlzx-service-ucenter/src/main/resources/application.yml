@@ -1,0 +1,42 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 40300
+
+
+spring:
+  # 微服务应用名
+  application:
+    name: wlzx-service-ucenter
+  #mysql数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/wlzx_user?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: root
+
+eureka:
+  client:
+    service-url:
+      #指定注册中心的地址
+      defaultZone: http://localhost:50101/eureka/
+  instance:
+    instance:
+    #    显示ip
+    prefer-ip-address: true
+    # status 的名称 ---当前项目的名称
+    instance-id: wlzx-service-ucenter
+
+# mybatis plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml # 映射xml位置
+  #type-aliases-package: net.wanho.po # 别名
+  configuration: # mybatis的原生配置
+    map-underscore-to-camel-case: true # 开启驼峰命名
+    #cache-enabled: false # 不使用缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: uuid  # 主键生成方案
+      field-strategy: not_empty  # 列的策略
+      db-type: mysql # 数据库类型

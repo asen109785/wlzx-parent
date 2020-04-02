@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  对应要实现的接口-->
+<mapper namespace="net.wanho.manage_course.mapper.TeachplanMapper">
+
+    <resultMap id="TeachplanMap" type="net.wano.po.course.ext.TeachplanNode">
+        <id column="one_id" property="id"/>
+        <result column="one_pname" property="pname"/>
+        <collection property="children" ofType="net.wano.po.course.ext.TeachplanNode">
+            <id column="two_id" property="id"/>
+            <result column="two_panme" property="pname"/>
+            <collection property="children" ofType="net.wano.po.course.ext.TeachplanNode">
+                <id column="three_id" property="id"/>
+                <result column="three_pname" property="pname"/>
+                <result column="media_file_original_name" property="mediaFileOriginalName"/>
+                <result column="m.media_id" property="mediaId"/>
+
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="selectTree" parameterType="string" resultMap="TeachplanMap">
+            SELECT a.id one_id,a.pname one_pname,
+            b.id two_id,b.pname two_panme ,
+            c.id three_id,c.pname three_pname,
+            m.media_id,
+            m.media_file_original_name
+            FROM teachplan a
+            left JOIN teachplan b
+            ON a.id=b.parentid
+            left JOIN teachplan c
+            ON b.id=c.parentid
+            LEFT JOIN teachplan_media m
+            on c.id = m.teachplan_id
+            WHERE a.courseid=#{courseId}
+            AND a.parentid='0'
+            ORDER BY a.orderby,b.orderby,c.orderby
+
+    </select>
+</mapper>

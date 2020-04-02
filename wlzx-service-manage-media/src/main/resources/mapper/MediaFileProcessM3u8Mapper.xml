@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.wanho.manage_media.mapper.MediaFileProcessM3u8Mapper">
+    <insert id="batchInsert">
+        insert into media_file_process_m3u8 values
+        <foreach collection="list" item="item" separator=",">
+            (replace(uuid(),"-",""),#{item.tslist},#{item.mediaFileId})
+        </foreach>
+    </insert>
+</mapper>

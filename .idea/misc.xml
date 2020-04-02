@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/demo-freemarker" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-manage-cms/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-freemarker/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-fastdfs/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-rabbitmq/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-manage-course/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-filesystem/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-es/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-search/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-manage-media/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-learning/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-oauth2/aouth-momery/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-ucenter-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-service-ucenter/pom.xml" />
+        <option value="$PROJECT_DIR$/wlzx-govern-gateway/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dome-oauth/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wlzx-service-api" />
+        <module name="aouth-momery" />
+        <module name="demo-freemarker" />
+        <module name="demo-rabbitmq" />
+        <module name="demo-fastdfs" />
+        <module name="aouth-jwt" />
+        <module name="aouth-jdbc" />
+        <module name="wlzx-service-ucenter" />
+        <module name="demo-es" />
+        <module name="wlzx-eureka-server" />
+        <module name="wlzx-service-manage-media" />
+        <module name="wlzx-service-ucenter-auth" />
+        <module name="wlzx-service-manage-course" />
+        <module name="service-memory" />
+        <module name="wlzx-service-search" />
+        <module name="wlzx-po" />
+        <module name="wlzx-service-manage-cms" />
+        <module name="wlzx-common" />
+        <module name="dome-momery" />
+        <module name="wlzx-govern-gateway" />
+        <module name="wlzx-service-learning" />
+        <module name="wlzx-service-filesystem" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dome-momery" target="1.5" />
+      <module name="dome-oauth" target="1.8" />
+      <module name="service-memory" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aouth-jdbc" options="-parameters" />
+      <module name="aouth-jwt" options="-parameters" />
+      <module name="aouth-momery" options="-parameters" />
+      <module name="demo-es" options="-parameters" />
+      <module name="demo-fastdfs" options="-parameters" />
+      <module name="demo-freemarker" options="-parameters" />
+      <module name="demo-oauth2" options="-parameters" />
+      <module name="demo-rabbitmq" options="-parameters" />
+      <module name="dome-oauth" options="-parameters" />
+      <module name="service-memory" options="-parameters" />
+      <module name="wlzx-common" options="-parameters" />
+      <module name="wlzx-eureka-server" options="-parameters" />
+      <module name="wlzx-govern-gateway" options="-parameters" />
+      <module name="wlzx-po" options="-parameters" />
+      <module name="wlzx-service-api" options="-parameters" />
+      <module name="wlzx-service-filesystem" options="-parameters" />
+      <module name="wlzx-service-learning" options="-parameters" />
+      <module name="wlzx-service-manage-cms" options="-parameters" />
+      <module name="wlzx-service-manage-course" options="-parameters" />
+      <module name="wlzx-service-manage-media" options="-parameters" />
+      <module name="wlzx-service-search" options="-parameters" />
+      <module name="wlzx-service-ucenter" options="-parameters" />
+      <module name="wlzx-service-ucenter-auth" options="-parameters" />
+    </option>
+  </component>
+</project>

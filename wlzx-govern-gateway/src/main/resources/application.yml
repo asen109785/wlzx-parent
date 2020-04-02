@@ -1,0 +1,62 @@
+server:
+  port: 50201
+  tomcat:
+    uri-encoding: UTF-8
+
+eureka:
+  client:
+    service-url:
+      #指定注册中心的地址
+      defaultZone: http://localhost:50101/eureka/
+  instance:
+    instance:
+    #    显示ip
+    prefer-ip-address: true
+    # status 的名称 ---当前项目的名称
+    instance-id: wlzx-govern-gateway
+
+spring:
+  # 微服务应用名
+  application:
+    name: wlzx-govern-gateway
+  redis:
+    host: ${REDIS_HOST:192.168.31.10}
+    port: ${REDIS_PORT:6379}
+    timeout: 5000 #连接超时 毫秒
+
+zuul:
+  routes:
+    # 自定义名称
+    manage-course:
+      path: /course/**
+      serviceId: wlzx-service-manage-course #微服务名称，网关会从eureka中获取该服务名称下的服务实例的地址
+      # 例子：将请求转发到http://localhost:31200/course
+      #url: http://www.baidu.com #也可指定url，此url也可以是外网地址\
+      strip-prefix: false #true：代理转发时去掉前缀，false:代理转发时不去掉前缀
+      sensitiveHeaders:  #默认zuul会屏蔽cookie，cookie不会传到下游服务，这里设置为空则取消默认的黑名单，如果设置了具体的头信息则不会传到下游服务
+      #   ignoredHeaders: 默认为空表示不过虑任何头
+      wlzx-service-learning:  #路由名称，名称任意，保持所有路由名称唯一
+        path: /learning/**
+        serviceId: wlzx-service-learning #指定服务id，从Eureka中找到服务的ip和端口
+        strip-prefix: false
+        sensitiveHeaders:
+      manage-cms:
+        path: /cms/**
+        serviceId: wlzx-service-manage-cms
+        strip-prefix: false
+        sensitiveHeaders:
+      manage-sys:
+        path: /sys/**
+        serviceId: wlzx-service-manage-cms
+        strip-prefix: false
+        sensitiveHeaders:
+      service-ucenter:
+        path: /ucenter/**
+        serviceId: wlzx-service-ucenter
+        sensitiveHeaders:
+        strip-prefix: false
+      wlzx-service-manage-order:
+        path: /order/**
+        serviceId: wlzx-service-manage-order
+        sensitiveHeaders:
+        strip-prefix: false

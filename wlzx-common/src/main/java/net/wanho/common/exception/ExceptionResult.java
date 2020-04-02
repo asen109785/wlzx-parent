@@ -1,0 +1,10 @@
+package net.wanho.common.exception;
+
+public interface ExceptionResult {
+    //操作是否成功,true为成功，false操作失败
+    boolean success();
+    //操作代码
+    int code();
+    //提示信息
+    String message();
+}

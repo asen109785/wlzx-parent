@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  对应要实现的接口-->
+<mapper namespace="net.wanho.manage_course.mapper.SysDictionaryMapper">
+
+
+    <resultMap id="SysDictionaryMap" type="net.wano.po.system.SysDictionary">
+        <id property="id" column="id"/>
+        <result property="dName" column="d_name"/>
+        <result property="dType" column="d_type"/>
+        <collection property="dValue" ofType="net.wano.po.system.SysDictionaryValue">
+            <id property="sdId" column="sd_id"/>
+            <result property="sdName" column="sd_name"/>
+            <result property="sdStatus" column="sd_status"/>
+        </collection>
+    </resultMap>
+
+    <select id="getByType" resultMap="SysDictionaryMap">
+        SELECT id,d_name,d_type,sd_id,sd_name,sd_status,d_id
+        from  `sys_dictionary` d
+        inner join `sys_dictionary_value` dv
+        on d.id = dv.d_id
+        where d_type=#{type}
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  对应要实现的接口-->
+<mapper namespace="net.wanho.manage_course.mapper.CourseMapper">
+
+
+    <select id="selectCourseBaseAndPic" resultType="net.wano.po.course.ext.CourseInfo">
+        SELECT
+            c.*,
+            p.pic
+        FROM
+            course_base c
+        LEFT JOIN course_pic p ON c.id = p.courseid
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

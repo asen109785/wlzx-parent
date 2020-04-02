@@ -1,0 +1,13 @@
+# Project exclude paths
+/demo-fastdfs/target/
+/demo-oauth2/aouth-jdbc/target/
+/demo-oauth2/aouth-jwt/target/
+/demo-rabbitmq/target/
+/wlzx-common/target/
+/wlzx-govern-gateway/target/
+/wlzx-po/target/
+/wlzx-service-api/target/
+/wlzx-service-manage-cms/target/
+/wlzx-service-manage-media/target/
+/wlzx-service-ucenter/target/
+/wlzx-service-ucenter-auth/target/
