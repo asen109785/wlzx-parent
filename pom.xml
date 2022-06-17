@@ -63,7 +63,7 @@
         <guava.version>28.1-jre</guava.version>
         <security.jwt.version>1.0.10.RELEASE</security.jwt.version>
         <zip4j.version>2.1.2</zip4j.version>
-        <fastjson.version>1.2.60</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
 <!--    依赖管理,版本管理-->
