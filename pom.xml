@@ -47,7 +47,7 @@
         <spring-cloud.version>Greenwich.SR5</spring-cloud.version>
         <spring-boot.version>2.1.13.RELEASE</spring-boot.version>
 
-        <springframework.version>5.1.9.RELEASE</springframework.version>
+        <springframework.version>6.0.0</springframework.version>
         <pagehelper.version>1.2.12</pagehelper.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
 
